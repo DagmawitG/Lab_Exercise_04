@@ -13,7 +13,7 @@ let personProfile = {
         let tempAge = this.ageCalc();
         if (tempAge >= 18) { this.isEligibleToVote = true; } else { this.isEligibleToVote = false; }
     },
-    calcBmi: function(weight,height) {
+    calcBmi = function(weight,height) {
     let bmi = (weight / (height ** 2)).toFixed(2);
     if (bmi < 18.5){
         return `BMI:  ${bmi} Status : underweight`;
@@ -34,13 +34,22 @@ personProfile.lastName = prompt("Enter Your Last Name");
 personProfile.job = prompt("What is Your Profession ?");
 personProfile.birthYear = prompt("Enter Your Birth Date");
 
-let tempAge = personProfile.ageCalc(personProfile.birthYear);
+// let tempAge = personProfile.ageCalc(personProfile.birthYear);
+(function(){
 console.log("Here is your Profile ")
 console.log("Full Name: " + personProfile.firstName + " " + personProfile.lastName);
 console.log("Profession : " + personProfile.job);
 console.log("Age : " + personProfile.tempAge + " " + "years old");
 console.log("Is Eligible to Vote : " + personProfile.isEligibleToVote);
+console.log("Family Members");
+familyMember.forEach(function(member, index) {
+    console.log("Family Member  " + (index + 1) + " : " + member);
+});
+personProfile.weight = prompt("Your Weight in Kg  ? ");
+    personProfile.height = prompt("Your Height in M  ? ");
+    console.log(personProfile.calcBmi(Number(personProfile.weight), Number(personProfile.height)));
 
+})
 
 personProfile.familyMembers = new Array();
 let numberOfFamily = prompt("Number of Family  ? ");
@@ -64,9 +73,7 @@ console.log(
     familyMember.forEach(function(member, index) {
         console.log("Family Member  " + (index + 1) + " : " + member);
     });
-    personProfile.weight = prompt("Your Weight in Kg  ? ");
-    personProfile.height = prompt("Your Height in M  ? ");
-    console.log(personProfile.calcBmi(Number(personProfile.weight), Number(personProfile.height)));
+    
 
    
 })();
