@@ -15,24 +15,32 @@ function withdraw (value){
     else{
         total = this.totalBalance;
     }
-    console.log("Remaining amount : ${total}");
+    console.log("Remaining amount :" + parseInt(total));
 }
 function balance (){
     console.log( this.totalBalance);
 }
 
-    //  BankAccount1= {
-    //         total1 : 1000,
-    //         accountNo1 : 1001,
+     BankAccount1= {
+            total1 : 1000,
+            accountNo1 : 1001,
      
-    // }
-    //  BankAccount2 = {
-    //     total2 : 800,
-    //     accountNo2 : 1002,
-    // }
-    // function transfer (){
+    }
+     BankAccount2 = {
+        total2 : 800,
+        accountNo2 : 1002,
+    }
+
+
+    function transfer (value){
         
-    // }
+        value1 = BankAccount1.total1;
+        value2 = BankAccount2.total2;
+        this.totalBalance = parseInt(value1);
+        let res1 = withdraw(parseInt(value));
+       
+        console.log("Bankaccount1-" + res1);
+    }
 
 
 
@@ -41,16 +49,20 @@ function balance (){
     user = prompt("Please choose the service you desire!\n 1. Deposit \n 2.Withdraw \n 3.Balance \n 4. Transfer ")
     if(user ==="1"){
         val = prompt("Enter the amount to be deposited")
-        deposit.call('val');
+        res = deposit(parseInt(val));
         
     }
     else  if(user ==="2"){
         val = prompt("Enter the amount to be withdrawn")
         val = Number(val);
-        withdraw.call(val);
+        res = withdraw(parseInt(val));
     }
     else  if(user ==="3"){
-        balance.call();
+        res = balance();
+    }
+    else if(user==="4"){
+        val = prompt("Enter the amount to be transferred");
+        res = transfer(val);
     }
     
     else{
