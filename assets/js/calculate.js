@@ -1,51 +1,32 @@
 
 
 
+
+
 (function () {
-    let user = prompt(`Enter the service that you desire? \n a.Subtraction \n  b.Division  \n c. Addition \n d.Multiplication)`);
-if (user === 'a') {
-    (function subtraction(first, second) {
-        console.log(`Difference: ${Number(first) - Number(second)}`);
-    })(prompt(`Enter a number?`),prompt(`Enter another number?`));
+    let user = prompt(`Enter the service that you desire? \n a. Addition \n b. Subtraction \n c. Multiplication  \n d. Division ` );
+ if(user ==='a'){
+    arr = prompt("Enter a list of numbers to add").split(',');
+    res = addition(arr); 
+}
+ else if (user === 'b') {
+    first= prompt(`Enter a number?`)
+    second = prompt(`Enter another number?`);
+    res = subtraction(first,second);
 }
 
 
-else if (user === 'b') {
-    (function division(first, second) {
-        if(second != 0){
-            let result = first/second
-            console.log(`Quotient: ${result}`);
-        }
-        else{
-            return 'Invalid';
-        }
-       
-        
-    })(prompt(`Enter a number?`),prompt(`Enter another number?`));
-}
+
 else if(user ==='c'){
-       var sum = 0;
-        var x = prompt("Enter a list");
-        x.forEach(addition)
-        function addition(value,index,array){
-            sum = sum + value;
-           
-            console.log('Sum: ${sum}');
-        }
-    
+    arr = prompt("Enter a list of numbers to multiply").split(',');
+    res = multiplication(arr); 
+}
+else if (user === 'd') {
+    first= prompt(`Enter a number?`)
+    second = prompt(`Enter another number?`);
+    res = division(first,second);
 }
 
-// else if(user ==='d'){
-//     (
-//         function multiplication(number){
-//             let product = 1;
-//             number.forEach(i => {
-//                 product *= i;
-//             });
-//            console.log(' Product: ${product}');
-//         }
-//     )(prompt(`Enter a list?`));
-// }
  
 
 
@@ -55,6 +36,39 @@ else {
 }})();
 
 
-// console.log(addition([1,2,3,4]))
+function subtraction(first, second) {
+    console.log(`Difference: ${Number(first) - Number(second)}`);
+}
+function division(first, second) {
+    if(second != 0){
+        let result = first/second
+        console.log(`Quotient: ${result}`);
+    }
+    else{
+        return 'Invalid';
+    }
+   
+    
+}
+function addition(arr){
+    var sum = 0;
+    for (var i = 0; i < arr.length; i++) {
+      sum += Number(arr[i])
+      
+    }
+    console.log(`Sum: ${sum}`);
+    
+}
 
-// console.log( multiplication([1,2,3,4]))
+function multiplication(arr){
+    var product = 1;
+    for (var i = 0; i < arr.length; i++) {
+        product *= Number(arr[i])
+        
+      }
+      
+   console.log(`Product: ${product}`);
+}
+
+
+
